@@ -1,0 +1,176 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="events-container">
+    <h2 class="section-title">Upcoming Events</h2>
+    
+    <div class="event">
+        <div class="event-content">
+            <h3>Coming Soon</h3>
+            <h4>🎉 Grand Opening of the Dliet Football and Tigrigna Academy! 🎉</h4>
+            <a href="javascript:void(0);" onclick="toggleText('event-more-1');" id="event-link-1" class="read-more-link">Read more</a>
+            <div id="event-more-1" style="display: none;">
+                <p>
+                    📅 Date: Coming Soon<br>
+                    ⏰ Time: Coming Soon<br>
+                    📍 Location: Birmingham
+                </p>
+                <p>Join us for a day filled with:</p>
+                <ul>
+                    <li>✔️ Exciting Sports Activities</li>
+                    <li>✔️ Tigrigna Cultural Experiences</li>
+                    <li>✔️ Community Networking</li>
+                    <li>✔️ Fun and Entertainment for All Ages</li>
+                </ul>
+                <p>🎤 Hosted by: Kbrom Gebremedihin (KB)</p>
+                <p>🌟 Save the Date and Be Part of Something Extraordinary! 🌟</p>
+                <p>For inquiries, contact us at:</p>
+                <p>
+                    📧 gebremedihink@gmail.com<br>
+                    📞 07449650750
+                </p>
+            </div>
+        </div>
+        <div class="event-image">
+            <img src="{{ url_for('static', filename='images/event1.jpg') }}" alt="Grand Opening Event" class="event-img">
+        </div>
+    </div>
+
+    <div class="event">
+        <div class="event-content">
+            <h3>Coming Soon</h3>
+            <h4>⚽ Football Match Day ⚽</h4>
+            <a href="javascript:void(0);" onclick="toggleText('event-more-2');" id="event-link-2" class="read-more-link">Read more</a>
+            <div id="event-more-2" style="display: none;">
+                <p>
+                    📅 Date: Coming Soon<br>
+                    ⏰ Time: Coming Soon<br>
+                    📍 Location: Birmingham
+                </p>
+                <p>Come and enjoy a day of thrilling football matches and community fun:</p>
+                <ul>
+                    <li>✔️ Competitive Football Matches</li>
+                    <li>✔️ Skills and Drills Sessions</li>
+                    <li>✔️ Family-Friendly Activities</li>
+                    <li>✔️ Food and Refreshments</li>
+                </ul>
+                <p>🎤 Special Guest: N/A</p>
+                <p>🌟 Mark Your Calendars and Join Us for an Unforgettable Day! 🌟</p>
+                <p>For inquiries, contact us at:</p>
+                <p>
+                    📧 gebremedihink@gmail.com<br>
+                    📞 07449650750
+                </p>
+            </div>
+        </div>
+        <div class="event-image">
+            <img src="{{ url_for('static', filename='images/event2.jpg') }}" alt="Football Match Day" class="event-img">
+        </div>
+    </div>
+
+    <div class="event">
+        <div class="event-content">
+            <h3>Coming Soon</h3>
+            <h4>🎉 Tigrigna Language Competition and Cultural Activities 🎉</h4>
+            <a href="javascript:void(0);" onclick="toggleText('event-more-3');" id="event-link-3" class="read-more-link">Read more</a>
+            <div id="event-more-3" style="display: none;">
+                <p>
+                    📅 Date: Coming Soon<br>
+                    ⏰ Time: Coming Soon<br>
+                    📍 Location: Birmingham
+                </p>
+                <p>Join us for a day celebrating Tigrigna language and culture:</p>
+                <ul>
+                    <li>✔️ Tigrigna Language Competition</li>
+                    <li>✔️ Traditional Food Tasting</li>
+                    <li>✔️ Cultural Performances</li>
+                    <li>✔️ Family-Friendly Activities</li>
+                </ul>
+                <p>🎤 Special Guest: N/A</p>
+                <p>🌟 Don’t Miss This Unique Cultural Event! 🌟</p>
+                <p>For inquiries, contact us at:</p>
+                <p>
+                    📧 gebremedihink@gmail.com<br>
+                    📞 07449650750
+                </p>
+            </div>
+        </div>
+        <div class="event-image">
+            <img src="{{ url_for('static', filename='images/event3.jpg') }}" alt="Tigrigna Language Competition" class="event-img">
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleText(id) {
+        var moreText = document.getElementById(id);
+        var linkText = document.getElementById(id.replace('more', 'link'));
+
+        if (moreText.style.display === "none") {
+            moreText.style.display = "block";
+            linkText.textContent = "Read less";
+        } else {
+            moreText.style.display = "none";
+            linkText.textContent = "Read more";
+        }
+    }
+</script>
+
+<style>
+    .events-container {
+        padding: 20px;
+        background-color: #f9f9f9;
+    }
+
+    .event {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Two equal columns */
+        gap: 20px;
+        border: 1px solid #ddd;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        background-color: #fff;
+    }
+
+    .event-content {
+        border: 1px solid #ccc; /* Frame for the content */
+        padding: 15px;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+    }
+
+    .event-image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid #ccc; /* Frame for the image */
+        padding: 15px;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+    }
+
+    .event-img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    .section-title {
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 2em;
+        color: #333;
+    }
+
+    .read-more-link {
+        color: #007bff;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    .read-more-link:hover {
+        text-decoration: underline;
+    }
+</style>
+{% endblock %}

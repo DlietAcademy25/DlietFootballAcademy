@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="text-animation">
+    <span id="animated-text">Promoting Culture and Heritage</span>
+</div>
+
+<div class="content">
+    <div class="left-column">
+        <div class="image-container">
+            <img src="{{ url_for('static', filename='images/football_training.jpg') }}" alt="Community Event" width="320" height="180">
+        </div>
+        <div class="testimonial">
+            <h3>Testimonials</h3>
+            <p>"Our community has greatly benefited from these programs."</p>
+        </div>
+    </div>
+    <div class="center-column">
+        <div class="video-container">
+            <video width="640" height="360" controls autoplay loop>
+                <source src="{{ url_for('static', filename='videos/cultural_festival.mp4') }}" type="video/mp4" alt = "Cultural Festival" width="640" height="360">
+                Your browser does not support the video tag.
+            </video>
+            <div class="time-overlay">
+                <span id="current-time"></span>
+            </div>
+        </div>
+    </div>
+    <div class="right-column">
+        <div class="advertising">
+            <p>Join us for our upcoming events and be a part of our vibrant community. For more details, click the link below:</p>
+            <a href="{{ url_for('events') }}">For detailed information, click here</a>
+        </div>
+        <div class="event-container text-animation">
+            <div class="event" id="event-1">
+                <h3>Exciting Sports Activities</h3>
+                <p>Coming soon, ⏰ Time: </p>
+                <p>🎉 Grand Opening of the Choice Sport and Tigrigna Academy! 🎉</p>
+            </div>
+
+            <div class="event" id="event-2" style="display: none;">
+                <h3>Competitive Football Matches</h3>
+                <p>Coming soon, ⏰ Time: </p>
+                <p>⚽ Football Match Day ⚽</p>
+            </div>
+
+            <div class="event" id="event-3" style="display: none;">
+                <h3>Cultural Activities</h3>
+                <p>🎉 Tigrigna Language Competition and Cultural Activities 🎉</p>
+                <p>📅 Date: coming soon</p>
+                <p>⏰ Time: </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function updateTime() {
+        const now = new Date();
+        const timeString = now.toLocaleTimeString();
+        document.getElementById('current-time').innerText = timeString;
+    }
+    setInterval(updateTime, 1000);
+    updateTime();
+
+    const texts = ["Promoting Culture and Heritage", "Supporting Our Community", "Educational Workshops and Events", "Join Us and Get Involved"];
+    let textIndex = 0;
+    function updateText() {
+        const animatedText = document.getElementById('animated-text');
+        animatedText.classList.remove('fade-in');
+        void animatedText.offsetWidth; // Trigger reflow
+        animatedText.classList.add('fade-in');
+        animatedText.innerText = texts[textIndex];
+        textIndex = (textIndex + 1) % texts.length;
+    }
+    setInterval(updateText, 3000);
+
+    let currentEventIndex = 0;
+    const events = document.querySelectorAll('.event-container .event');
+    const eventCount = events.length;
+
+    function showNextEvent() {
+        events[currentEventIndex].style.display = 'none';
+        currentEventIndex = (currentEventIndex + 1) % eventCount;
+        events[currentEventIndex].style.display = 'block';
+    }
+
+    setInterval(showNextEvent, 6000);
+</script>
+
+<style>
+    .content {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    .left-column, .right-column {
+        flex: 1;
+        margin: 10px;
+    }
+
+    .center-column {
+        flex: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .video-container {
+        text-align: center;
+    }
+
+    .image-container {
+        text-align: center;
+    }
+
+    .event-container {
+        position: relative;
+    }
+
+    .event {
+        position: absolute;
+        width: 100%;
+    }
+
+    .text-animation {
+        text-align: center;
+        font-size: 1.5em;
+        margin: 20px 0;
+        animation: fadeIn 6s infinite;
+    }
+
+    .fade-in {
+        animation: fadeIn 5s;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+</style>
+
+{% endblock %}

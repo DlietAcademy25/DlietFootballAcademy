@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dliet Football & Tigrigna Academy</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/logo3.png') }}" alt="Dliet Football & Tigrigna Academy Logo" class="logo-img">
+            </div>
+            <div class="header-text">
+                <h1>Dliet Football & Tigrigna Academy</h1>
+                <h2>ድሌት ኩዕሶን ቋንቋ ትግርኛን ኣካደሚ</h2>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('events') }}">Events</a></li>
+                <li><a href="{{ url_for('programs') }}">Programs</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="social-media-icons">
+                <a href="https://facebook.com/kibrom.geb.9" target="_blank">
+                    <img src="{{ url_for('static', filename='images/facebook.png') }}" alt="Facebook">
+                </a>
+                <a href="https://x.com/gebkb?s=21" target="_blank">
+                    <img src="{{ url_for('static', filename='images/twitter.png') }}" alt="Twitter">
+                </a>
+                <a href="https://www.youtube.com/@DlietFootballAcademy" target="_blank">
+                    <img src="{{ url_for('static', filename='images/youtube.png') }}" alt="YouTube">
+                </a>
+                <a href="https://www.tiktok.com/@kbromgebremedihin?_t=ZG-8snNFgC5uVd&_r=1" target="_blank">
+                    <img src="{{ url_for('static', filename='images/tiktok.png') }}" alt="TikTok">
+                </a>
+            </div>
+            <div class="copyright">
+                <p>&copy; <span id="current-year"></span> Dliet Football & Tigrigna Academy</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background: linear-gradient(to right, red, yellow);
+            color: #fff;
+            padding: 20px;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 20px; /* Space between logo and text */
+        }
+
+        .logo-img {
+            width: 60px; /* Resized logo */
+            height: 60px;
+        }
+
+        .header-text h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .header-text h2 {
+            margin: 5px 0 0;
+            font-size: 18px;
+            font-weight: normal;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background: linear-gradient(to right, red, yellow);
+        }
+
+        .social-media-icons a {
+            margin: 0 5px;
+        }
+
+        .social-media-icons img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .copyright {
+            text-align: right;
+            color: #fff;
+        }
+    </style>
+</body>
+</html>

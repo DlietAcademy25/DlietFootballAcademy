@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <!-- Left Column -->
+    <div class="left-column">
+        <!-- Top Left: Program Schedule -->
+        <div class="schedule-section">
+            <h2>Program Schedule</h2>
+            <p>Here are the available schedules for football players and students:</p>
+            <ul>
+                <li>Saturday: 10:00 AM - 12:00 PM</li>
+                <li>Sunday: 4:00 PM - 6:00 PM</li>
+            </ul>
+        </div>
+        <!-- Bottom Left: Register for a Schedule -->
+        <div class="register-section">
+            <h2>Register for a Schedule</h2>
+            <p>Click the link below to register for a schedule:</p>
+            <a href="https://shorturl.at/LNomG" target="_blank" class="btn">Register Here</a>
+            <p>Scan the barcode below to register or:</p>
+            <img src="{{ url_for('static', filename='images/barcode.png') }}" alt="Registration Barcode" class="barcode-image">
+        </div>
+    </div>
+
+    <!-- Right Column -->
+    <div class="right-column">
+        <!-- Top Right: Football Image -->
+        <div class="football-image-section">
+            <img src="{{ url_for('static', filename='images/football.png') }}" alt="Football Program" class="image">
+            <p class="image-description">
+                Dliet Football Academy – Train Like a Pro! 🏆<br>
+                ✅ Fun & engaging football training for all skill levels!<br>
+                ✅ Learn teamwork, discipline & game strategies!<br>
+                ✅ Small-group coaching for personal skill development!<br>
+                ✅ Build fitness, agility & confidence on the field!<br>
+                📲 Sign up today & kick-start your journey! 🚀
+            </p>
+        </div>
+        <!-- Bottom Right: Language Student Image -->
+        <div class="language-image-section">
+            <img src="{{ url_for('static', filename='images/language.png') }}" alt="Language Program" class="image">
+            <p class="image-description">
+                🌍 Tigrigna Language & Culture Academy! 🌍<br>
+                ✅ Learn to read, write & speak Tigrigna fluently!<br>
+                ✅ Explore the rich heritage & traditions of Tigray!<br>
+                ✅ Engaging lessons with interactive activities!<br>
+                ✅ Perfect for children & adults of all levels!<br>
+                📲 Register now & embrace your roots! 🎓
+            </p>
+        </div>
+    </div>
+</div>
+
+<style>
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Two equal columns */
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .left-column, .right-column {
+        display: grid;
+        grid-template-rows: 1fr 1fr; /* Two equal rows */
+        gap: 20px;
+    }
+
+    .schedule-section, .register-section, .football-image-section, .language-image-section {
+        border: 1px solid #ccc;
+        padding: 15px;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+    }
+
+    .barcode-image {
+        width: 150px;
+        height: auto;
+        display: block;
+        margin: 10px auto;
+    }
+
+    .image {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    .image-description {
+        margin-top: 10px;
+        font-size: 14px;
+        line-height: 1.6;
+        color: #333;
+        text-align: left;
+    }
+</style>
+{% endblock %}

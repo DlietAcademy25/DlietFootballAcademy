@@ -1,0 +1,181 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="about-container">
+    <!-- Left Column -->
+    <div class="left-column">
+        <h2>About Us</h2>
+        <p id="about-us-text">
+            Dliet Football & Tigrigna Academy is dedicated to promoting culture and heritage through sports and educational programs. 
+            We strive to support our community by providing opportunities for growth and development. Our mission is to create a 
+            supportive environment where individuals can thrive and achieve their full potential. <span class="hidden-text" id="about-us-hidden">
+            We believe in the power of sports and education to bring people together and foster a sense of community.</span>
+        </p>
+        <a href="javascript:void(0);" onclick="toggleText('about-us-hidden', this);" class="read-more-link">Read more</a>
+
+        <h3>Our History</h3>
+        <p id="history-text">
+            Founded in 2025, Dliet Football & Tigrigna Academy has been a cornerstone of the community, offering a variety of programs 
+            that celebrate our rich cultural heritage and promote physical fitness. <span class="hidden-text" id="history-hidden">
+            Our journey began with a small group of passionate individuals who wanted to make a difference in the community. Over the years, 
+            we have grown and expanded our programs to include a wide range of activities that cater to all age groups.</span>
+        </p>
+        <a href="javascript:void(0);" onclick="toggleText('history-hidden', this);" class="read-more-link">Read more</a>
+
+        <h3>Our Staff</h3>
+        <p id="staff-text">
+            Our dedicated team of professionals is committed to providing the best possible experience for our participants. <span class="hidden-text" id="staff-hidden">
+            Meet our staff and learn more about their backgrounds and expertise. Their commitment and passion are evident in everything we do, 
+            from our cultural preservation projects to our support services for new immigrants. Together, we strive to build a resilient 
+            and vibrant community for future generations.</span>
+        </p>
+        <a href="javascript:void(0);" onclick="toggleText('staff-hidden', this);" class="read-more-link">Read more</a>
+    </div>
+
+    <!-- Right Column -->
+    <div class="right-column">
+        <h2>Vision</h2>
+        <p id="vision-text">
+            To be a leading institution that bridges cultural heritage and modern education, empowering individuals to excel in sports, 
+            academics, and community leadership. <span class="hidden-text" id="vision-hidden">
+            We aim to inspire future generations to embrace their heritage while achieving excellence in all aspects of life.</span>
+        </p>
+        <a href="javascript:void(0);" onclick="toggleText('vision-hidden', this);" class="read-more-link">Read more</a>
+
+        <h2>Mission</h2>
+        <p id="mission-text">
+            To provide a nurturing environment where individuals can develop their skills, embrace their cultural identity, and contribute 
+            to a stronger, more connected community. <span class="hidden-text" id="mission-hidden">
+            Through innovative programs and community engagement, we aim to create opportunities for personal and collective growth.</span>
+        </p>
+        <a href="javascript:void(0);" onclick="toggleText('mission-hidden', this);" class="read-more-link">Read more</a>
+
+        <h2>Upcoming Events</h2>
+        <div class="event">
+            <div class="event-content">
+                <h3>🎉 Grand Opening of the Dliet Football and Tigrigna Academy! 🎉</h3>
+                <p>📅 Date: Coming Soon</p>
+                <p>⏰ Time: Coming Soon</p>
+                <p>📍 Location: Birmingham</p>
+            </div>
+            <div class="event-image">
+                <img src="{{ url_for('static', filename='images/event1.jpg') }}" alt="Grand Opening Event" class="event-img">
+            </div>
+        </div>
+        <div class="event">
+            <div class="event-content">
+                <h3>⚽ Football Match Day ⚽</h3>
+                <p>📅 Date: Coming Soon</p>
+                <p>⏰ Time: Coming Soon</p>
+                <p>📍 Location: Birmingham</p>
+            </div>
+            <div class="event-image">
+                <img src="{{ url_for('static', filename='images/event2.jpg') }}" alt="Football Match Day" class="event-img">
+            </div>
+        </div>
+        <a href="{{ url_for('events') }}" class="events-link">View All Events</a>
+    </div>
+</div>
+
+<script>
+    function toggleText(id, link) {
+        const hiddenText = document.getElementById(id);
+        if (hiddenText.style.display === "none") {
+            hiddenText.style.display = "inline";
+            link.textContent = "Read less";
+        } else {
+            hiddenText.style.display = "none";
+            link.textContent = "Read more";
+        }
+    }
+
+    // Initialize hidden text
+    document.querySelectorAll('.hidden-text').forEach(el => el.style.display = 'none');
+</script>
+
+<style>
+    .about-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Two equal columns */
+        gap: 20px;
+        padding: 20px;
+        background-color: #f9f9f9;
+    }
+
+    .left-column, .right-column {
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #fff;
+    }
+
+    .event {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Two equal columns for event content and image */
+        gap: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+        padding: 10px;
+    }
+
+    .event-content {
+        padding: 10px;
+        border-right: 1px solid #ddd; /* Divider between content and image */
+    }
+
+    .event-image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .event-img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    .read-more-link {
+        color: #007bff;
+        cursor: pointer;
+        text-decoration: none;
+        font-size: 14px;
+    }
+
+    .read-more-link:hover {
+        text-decoration: underline;
+    }
+
+    .events-link {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 10px 15px;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+
+    .events-link:hover {
+        background-color: #0056b3;
+    }
+
+    h2 {
+        color: #333;
+        margin-bottom: 15px;
+    }
+
+    h3 {
+        color: #555;
+        margin-bottom: 10px;
+    }
+
+    p {
+        line-height: 1.6;
+        color: #666;
+    }
+</style>
+{% endblock %}
